@@ -49,7 +49,7 @@ Scripted install of JBoss BPMS on top of Tomcat.
   ./startup.sh
 ```
 
-* Watch the main log for exceptions. Not you should look at the top most error in the log, after the server was started.
+* Watch the main log for exceptions. Note, you should look at the top most error in the log, after the server was started.
 
 * After installation is it save to delete the installation and staging directories:
 
