@@ -24,7 +24,7 @@ limitations under the License.
 
     <session-factory>
         <!-- Database connection settings -->
-        <property name="connection.datasource">java:comp/env/jdbc/dashbuilderDS</property>
+        <property name="connection.datasource">java:comp/env/jdbc/jbpm</property>
 
         <!-- Use java.io streams to read / write binary data from / to JDBC -->
         <property name="jdbc.use_streams_for_binary">true</property>
