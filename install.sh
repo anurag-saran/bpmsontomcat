@@ -3,7 +3,7 @@
 
 usage() {
 	echo "cd \$TOMCAT_HOME"
-	echo "wget https://github.com/shuawest/bpmsontomcat/blob/master/install.sh" 
+	echo "wget https://raw.githubusercontent.com/shuawest/bpmsontomcat/master/install.sh" 
 	echo "chmod a+x install.sh"
 	echo "./install.sh
 	echo " "	
