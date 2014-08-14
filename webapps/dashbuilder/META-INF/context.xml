@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context fireRequestListenersOnForwards="false" >
+
+    <Resource name="jdbc/dashbuilderDS" uniqueName="jdbc/jbpm" 
+	auth="Container" removeAbandoned="true" 
+	factory="bitronix.tm.resource.ResourceObjectFactory" 
+	type="javax.sql.DataSource"/>
+
+<!--
+    <Resource name="jdbc/jbpm" auth="Container"
+              type="javax.sql.DataSource" username="sa" password=""
+              driverClassName="org.h2.Driver"
+              url="jdbc:h2:file:~/jbpm"
+              maxActive="8"
+            />
+-->
+    <Resource name="BeanManager"
+              auth="Container"
+              type="javax.enterprise.inject.spi.BeanManager"
+              factory="org.jboss.weld.resources.ManagerObjectFactory"/>
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>META-INF/context.xml</WatchedResource>
+
+    <Transaction factory="bitronix.tm.BitronixUserTransactionObjectFactory"/>
+
+</Context>
