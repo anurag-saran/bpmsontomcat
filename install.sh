@@ -2,13 +2,18 @@
 
 
 usage() {
-	echo "cd $TOMCAT_HOME"
-	echo "./install.sh" 
-	echo "vi conf.resources.properties for your datasource"
-	echo "cp $DBDRIVER ./lib/"
-	echo "vi webapps/business-central/WEB-INF/classes/META-INF/persistence.xml   #edit database dialect"
-	echo "cd bin"
-	echo "./startup.sh"
+	echo "cd \$TOMCAT_HOME"
+	echo "wget https://github.com/shuawest/bpmsontomcat/blob/master/install.sh" 
+	echo "chmod a+x install.sh"
+	echo "./install.sh
+	echo " "	
+	echo "vi conf/resources.properties  # update this file for your datasource"
+	echo "vi bin/setenv.sh              # uncomment the proper hiberate dialect"
+	echo "cp $JDBCJAR ./lib		    # copy your JDBC driver jar file into ./lib/"
+	echo " "
+	echo "cd bin            # start tomcat from a consistent location - files are placed in the current working directory"
+	echo "./startup.sh      # start the server"
+
 }
 
 if [ ! -f "./bin/catalina.sh" ]; then
@@ -76,7 +81,15 @@ cp --parents conf/server.xml confbackup/
 # Overlay file changes from github 
 # NOTE: this will not merge the changes with your files, so check that these overlay files don't disable anything customized in your own Tomcat installation
 cp -rvf downloads/bpmsontomcat*/overlay/* ./
+chmod a+x bin/setenv.sh
 
+echo " "
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
+echo " "
+echo " Installation Complete"
+echo "   complete the post-install steps"
+ehco " "
+usage
 
 
 
