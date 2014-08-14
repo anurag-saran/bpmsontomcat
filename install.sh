@@ -5,7 +5,7 @@ usage() {
 	echo "cd \$TOMCAT_HOME"
 	echo "wget https://raw.githubusercontent.com/shuawest/bpmsontomcat/master/install.sh" 
 	echo "chmod a+x install.sh"
-	echo "./install.sh
+	echo "./install.sh"
 	echo " "	
 	echo "vi conf/resources.properties  # update this file for your datasource"
 	echo "vi bin/setenv.sh              # uncomment the proper hiberate dialect"
