@@ -32,6 +32,20 @@ if [ ! -f javax.security.jacc-api-1.5.jar ]; then
 	wget http://repository.jboss.org/nexus/content/repositories/central/javax/security/jacc/javax.security.jacc-api/1.5/javax.security.jacc-api-1.5.jar
 fi
 
+if [ ! -f bpmsontomcat.zip ]; then
+	wget https://github.com/shuawest/bpmsontomcat/archive/43b4a9058c0f3e0d2108afc741f768bc09918feb.zip
+	mv 43b4a9058c0f3e0d2108afc741f768bc09918feb.zip bpmsontomcat.zip
+fi
+
+if [ ! -f ojdbc6.jar ]; then
+	wget http://people.redhat.com/jowest/ojdbc6.jar        
+fi
+
+rm -rf bpmsontomcat*/
+unzip bpmsontomcat.zip
+
+
+rm -rf jboss-bpms-*-deployable-generic
 unzip jboss-bpms-*-deployable-generic.zip
 pushd jboss-bpms-*
 unzip jboss-bpms-manager.zip
@@ -52,13 +66,16 @@ cp -v ./webapps/business-central/WEB-INF/lib/kie-tomcat-integration-*.jar ./lib/
 cp -v ./webapps/business-central/WEB-INF/lib/jaxb-api-*.jar ./lib/
 
 # install your database driver
-wget http://people.redhat.com/jowest/ojdbc6.jar
-cp -v ojdbc6.jar ./lib/
+cp -v downloads/ojdbc6.jar ./lib/
 
+mkdir confbackup
+cp --parents conf/tomcat-users.xml confbackup/
+cp --parents conf/context.xml confbackup/
+cp --parents conf/server.xml confbackup/
 
 # Overlay file changes from github 
 # NOTE: this will not merge the changes with your files, so check that these overlay files don't disable anything customized in your own Tomcat installation
-#cp -rf overlay/* ./
+cp -rvf downloads/bpmsontomcat*/overlay/* ./
 
 
 
