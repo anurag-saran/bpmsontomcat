@@ -88,7 +88,7 @@ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
 echo " "
 echo " Installation Complete"
 echo "   complete the post-install steps"
-ehco " "
+echo " "
 usage
 
 
