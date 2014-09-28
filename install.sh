@@ -96,7 +96,7 @@ fi
 # Overlay file changes from github 
 # NOTE: this will not merge the changes with your files, so check that these overlay files don't disable anything customized in your own Tomcat installation
 cp -rvf downloads/bpmsontomcat*/overlay/* ./
-chmod a+x bin/setenv.sh
+chmod a+x bin/*.sh
 
 echo " "
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
