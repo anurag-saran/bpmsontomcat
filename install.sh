@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# TODO
+# + Factor in set current working directory for .niogit and maven directories to be under catalina home
+# + Create alternative configuration that doesn't require XA permissions
+# + also backup the setenv.sh script
+# 
+# Longer term TODOs
+# a) Setup zookeeper and helix? 
 
 usage() {
 	echo "cd \$TOMCAT_HOME"
@@ -38,12 +45,16 @@ if [ ! -f javax.security.jacc-api-1.5.jar ]; then
 fi
 
 if [ ! -f bpmsontomcat.zip ]; then
-	wget https://github.com/shuawest/bpmsontomcat/archive/43b4a9058c0f3e0d2108afc741f768bc09918feb.zip
-	mv 43b4a9058c0f3e0d2108afc741f768bc09918feb.zip bpmsontomcat.zip
+	wget --no-check-certificate https://github.com/shuawest/bpmsontomcat/archive/master.zip
+	mv master.zip bpmsontomcat.zip
 fi
 
 if [ ! -f ojdbc6.jar ]; then
 	wget http://people.redhat.com/jowest/ojdbc6.jar        
+fi
+
+if [ ! -f mysql-connector-java.jar ]; then
+        wget http://people.redhat.com/jowest/mysql-connector-java.jar
 fi
 
 rm -rf bpmsontomcat*/
@@ -71,12 +82,16 @@ cp -v ./webapps/business-central/WEB-INF/lib/kie-tomcat-integration-*.jar ./lib/
 cp -v ./webapps/business-central/WEB-INF/lib/jaxb-api-*.jar ./lib/
 
 # install your database driver
-cp -v downloads/ojdbc6.jar ./lib/
+#cp -v downloads/ojdbc6.jar ./lib/
+cp -v downloads/mysql-connector-java.jar ./lib/
 
 mkdir confbackup
 cp --parents conf/tomcat-users.xml confbackup/
 cp --parents conf/context.xml confbackup/
 cp --parents conf/server.xml confbackup/
+if [ -f bin/setenv.sh ]; then
+	cp --parents bin/setenv.sh confbackup/
+fi
 
 # Overlay file changes from github 
 # NOTE: this will not merge the changes with your files, so check that these overlay files don't disable anything customized in your own Tomcat installation

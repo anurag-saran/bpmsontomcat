@@ -36,6 +36,11 @@
 
   <role rolename="admin"/>
   <role rolename="analyst" />
+
+  <role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+
   <user username="bpmsadmin" password="Redhat1!" roles="admin,analyst"/>
+  <user username="tomcatadmin" password="managetomcat" roles="manager-gui,manager-script"/>
 
 </tomcat-users>
