@@ -37,7 +37,7 @@ mkdir downloads
 pushd downloads
 
 if [ ! -f jboss-bpms-*-deployable-generic.zip ]; then
-	wget http://people.redhat.com/jowest/bnym/jboss-bpms-6.0.2.GA-redhat-5-deployable-generic.zip
+	wget http://people.redhat.com/jowest/jboss-bpms-6.0.3.GA-redhat-1-deployable-generic.zip 
 fi
 
 if [ ! -f javax.security.jacc-api-1.5.jar ]; then
