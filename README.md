@@ -1,7 +1,7 @@
 bpmsontomcat
 ============
 
-Scripted install of JBoss BPMS on top of Tomcat.
+Scripted install of JBoss BPMS on top of Tomcat.  
 
 [JBoss BPMS on Tomcat installation instructions](https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BPM_Suite/6.0/html-single/Installation_Guide/index.html#sect-The_generic_deployable_bundle_installation)
 
@@ -55,7 +55,6 @@ Scripted install of JBoss BPMS on top of Tomcat.
 
 ```
   cd $CATALINA_HOME
-  rm -rf downloads
   rm -rf confbackup
   rm install.sh
 ```
