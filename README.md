@@ -21,9 +21,9 @@ Scripted install of JBoss BPMS on top of Tomcat.
 * Get the install script, and execute it
 
 ```
-  wget https://raw.githubusercontent.com/shuawest/bpmsontomcat/master/install.sh
-  chmod a+x install.sh
-  ./install.sh
+  wget https://raw.githubusercontent.com/shuawest/bpmsontomcat/master/installBPMS.sh
+  chmod a+x installBPMS.sh
+  ./installBPMS.sh
 ```  
 
 * Edit the datasource properties to match your environment
@@ -56,6 +56,6 @@ Scripted install of JBoss BPMS on top of Tomcat.
 ```
   cd $CATALINA_HOME
   rm -rf confbackup
-  rm install.sh
+  rm installBPMS.sh
 ```
 
